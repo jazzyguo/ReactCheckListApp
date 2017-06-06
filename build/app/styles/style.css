@@ -1,0 +1,99 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Roboto+Slab:400,100,300,700);
+
+/**  Basic Page CSS **/
+body{
+    font-family: "Roboto Slab", sans-serif;
+    font-weight: 300;
+    position: relative;
+    background-color: #337ab7;
+    font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 100;
+    margin: 0;
+}
+
+/**  Header Navigation **/
+
+header .navbar {
+    margin-bottom: 0;
+}
+
+header .navbar-default {
+    background-color: #337ab7;
+    border: none;
+    border-radius: 0;
+    padding: 10px 0;
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 400;
+    padding-left: 70px;
+}
+
+.main {
+    background: white;
+    padding: 30px 0;
+}
+
+/**  Interface Styles **/
+.item-list {
+    padding: 0;
+    list-style-type: none;
+    margin: 10px 5%;
+    font-size: 1rem;
+}
+
+.item-list .item {
+    border-bottom: 1px dotted gray;
+    padding-bottom: 10px;
+}
+
+.item-list .item:last-child {
+    border-bottom: none;
+}
+
+.item-list .item-name {
+    font-weight: 600;
+    color: #337ab7;
+    font-size: 1.3em;
+    line-height: 100%;
+}
+
+.item-list .item-info {
+    font-size: 1.7em;
+}
+
+.item-list .item-item {
+    font-weight: 600;
+    color: #667B82;
+}
+
+.item-list .item-date {
+    font-style: italic;
+    margin-right: 10px;
+}
+
+.item-list .item-time {
+    color: #000;
+    font-weight: 500;
+    font-size: 1.2em;
+    font-style: bold;
+}
+
+.btn-group-xs>.btn, .btn-xs {
+    padding: 0px 2px;
+    font-size: 9px;
+    line-height: 1.5;
+    border-radius: 11px;
+}
+
+.glyphicon-minus:before {
+    content: "\2212";
+    padding-right: 1px;
+}

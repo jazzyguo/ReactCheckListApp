@@ -1,0 +1,29 @@
+[{
+    "name": "Wake up",
+    "date": "2017-6-6",
+    "startTime": "8:30",
+    "endTime": "",
+    "notes": "Get up and make some eggs for breakfast",
+    "Complete":"false"
+}, {
+    "name": "Go to the gym",
+    "date": "2017-6-6",
+    "startTime": "14:30",
+    "endTime": "16:30",
+    "notes": "It's leg day!",
+    "Complete":"false"
+}, {
+    "name": "Grocery Shopping",
+    "date": "2017-6-6",
+    "startTime": "18:00",
+    "endTime": "19:00",
+    "notes": "Go to the market and buy some ingredients for pasta",
+    "Complete":"false"
+}, {
+    "name": "Cook Dinner",
+    "date": "2017-6-6",
+    "startTime": "20:00",
+    "endTime": "21:00",
+    "notes": "Prepare pasta for dinner",
+    "Complete":"false"
+}]
