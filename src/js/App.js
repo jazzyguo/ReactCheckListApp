@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 import Items from './Items'
+import _ from 'lodash'
+
 var editToggle = false; //toggle deletion of cells
 
 class Interface extends React.Component {
@@ -18,9 +20,14 @@ class Interface extends React.Component {
 	        this.setState({data});
 	      });
 	}//load data from json with axios
+	delete(item){
+		var allItems = this.state.data;
+		var newItems = _.without(allItems, item);
+		this.setState({data:newItems});
+	}//delete item
 	render(){
 		var items = this.state.data.map((value, key) => 
-			<Items item={value} key={key} toggle={editToggle}/> 
+			<Items item={value} key={key} toggle={editToggle} onDelete={this.delete.bind(this)}/> 
 		);
 		return (
 			<div>
