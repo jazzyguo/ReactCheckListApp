@@ -97,3 +97,14 @@ header h1 {
     content: "\2212";
     padding-right: 1px;
 }
+
+.panel-body {
+    padding: 10px;
+    padding-right: 5em;
+}
+
+.panel-primary {
+    border-color: #337ab7;
+    margin-left: 113px;
+    margin-right: 112px;
+}

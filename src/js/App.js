@@ -2,15 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import axios from 'axios'
 import Items from './Items'
+import AddItem from './AddItem'
 import _ from 'lodash'
-
-var editToggle = false; //toggle deletion of cells
 
 class Interface extends React.Component {
 	constructor(){
 		super();
 		this.state = {
-    		data:[]
+    		data:[],
+    		editToggle:false,
+    		formToggle:false
   		}	
 	}//Initial state
     componentDidMount() {
@@ -21,18 +22,22 @@ class Interface extends React.Component {
 	      });
 	}//load data from json with axios
 	delete(item){
-		var allItems = this.state.data;
-		var newItems = _.without(allItems, item);
-		this.setState({data:newItems});
+		var data = _.without(this.state.data, item);
+		this.setState({data});
 	}//delete item
 	render(){
 		var items = this.state.data.map((value, key) => 
-			<Items item={value} key={key} toggle={editToggle} onDelete={this.delete.bind(this)}/> 
+			<Items item={value} key={key} 
+			       toggle={this.state.editToggle} 
+			       onDelete={this.delete.bind(this)}/> 
 		);
 		return (
 			<div>
+				<AddItem formToggle={this.state.formToggle} 
+						 handleToggle={()=>(this.setState({formToggle:!this.state.formToggle}))} />
 				<div className="item-list media-list">
-				<button onClick={()=>(editToggle=!editToggle, this.forceUpdate())}>Edit</button>
+				<button className="pull-left" 
+				        onClick={()=>(this.setState({editToggle:!this.state.editToggle}))}>Edit</button>
 					<ul className="item-list media-list">{items}</ul>
 				</div>
 			</div>

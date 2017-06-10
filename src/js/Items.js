@@ -8,8 +8,8 @@ class Items extends React.Component {
 		return( 
 			<li className="item media">
 			<div className="media-left">
-				{this.props.toggle===true?<button className="item-delete btn btn-xs btn-danger" onClick={this.handleDelete.bind(this)}>
-				<span className="glyphicon glyphicon-minus"></span></button>:""} 
+				{this.props.toggle ? <button className="item-delete btn btn-xs btn-danger" onClick={this.handleDelete.bind(this)}>
+				<span className="glyphicon glyphicon-minus"></span></button> : ""} 
 			</div>
 				<div className="item-info media-body">
 					<div className="item-head">
