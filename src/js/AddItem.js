@@ -4,7 +4,7 @@ class AddItem extends React.Component {
 	toggleForm(){
 		this.props.handleToggle();
 	}
-	handleAdd(event){
+	handleAdd(e){
 		var item = {
 			"name": this.refs.inputItemName.value,
     		"date": this.refs.inputDate.value,
@@ -19,7 +19,7 @@ class AddItem extends React.Component {
     	this.refs.inputStartTime.value = '';
    		this.refs.inputEndTime.value = '';
     	this.refs.itemInfo.value = 'Notes'
-		event.preventDefault();
+		e.preventDefault();
 		this.props.addItem(item);
 	}//creates new item from form submission
 	render(){
