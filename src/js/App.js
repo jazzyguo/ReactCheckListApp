@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import axios from 'axios'
 import Items from './Items'
 import AddItem from './AddItem'
+import SearchItems from './SearchItems'
 import _ from 'lodash'
 
 class Interface extends React.Component {
@@ -16,7 +17,7 @@ class Interface extends React.Component {
 	}//Initial state
     componentDidMount() {
 	    axios.get('data.json')
-	      .then(response => {
+	      .then((response) => {
 	        var data = response.data;
 	        this.setState({data});
 	      });
@@ -25,16 +26,22 @@ class Interface extends React.Component {
 		var data = _.without(this.state.data, item);
 		this.setState({data});
 	}//delete item
+	addItem(item){
+		var data = this.state.data;
+		data.push(item);
+		this.setState({data});
+	}//add item
 	render(){
 		var items = this.state.data.map((value, key) => 
 			<Items item={value} key={key} 
 			       toggle={this.state.editToggle} 
-			       onDelete={this.delete.bind(this)}/> 
+			       onDelete={this.delete.bind(this)} /> 
 		);
 		return (
 			<div>
 				<AddItem formToggle={this.state.formToggle} 
-						 handleToggle={()=>(this.setState({formToggle:!this.state.formToggle}))} />
+						 handleToggle={()=>(this.setState({formToggle:!this.state.formToggle}))} 
+						 addItem = {this.addItem.bind(this)}/>
 				<div className="item-list media-list">
 				<button className="pull-left" 
 				        onClick={()=>(this.setState({editToggle:!this.state.editToggle}))}>Edit</button>
@@ -45,4 +52,4 @@ class Interface extends React.Component {
 	}//render the main interface
 }
 
-ReactDOM.render(<Interface editToggle={false}/>, document.getElementById('checkList'));
+ReactDOM.render(<Interface />, document.getElementById('checkList'));

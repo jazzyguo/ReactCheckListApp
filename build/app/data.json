@@ -4,26 +4,26 @@
     "startTime": "8:30AM",
     "endTime": "",
     "notes": "Get up and make some eggs for breakfast",
-    "Complete":"false"
+    "complete":false
 }, {
     "name": "Go to the gym",
     "date": "2017-6-6",
     "startTime": "2:30PM",
     "endTime": "4:30PM",
     "notes": "It's leg day!",
-    "Complete":"false"
+    "complete":false
 }, {
     "name": "Grocery Shopping",
     "date": "2017-6-6",
     "startTime": "6:00PM",
     "endTime": "7:00PM",
     "notes": "Go to the market and buy some ingredients for pasta",
-    "Complete":"false"
+    "complete":false
 }, {
     "name": "Cook Dinner",
     "date": "2017-6-6",
     "startTime": "8:00PM",
     "endTime": "9:00PM",
     "notes": "Prepare pasta for dinner",
-    "Complete":"false"
+    "complete":false
 }]

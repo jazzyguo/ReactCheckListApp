@@ -4,6 +4,23 @@ class AddItem extends React.Component {
 	toggleForm(){
 		this.props.handleToggle();
 	}
+	handleAdd(event){
+		var item = {
+			"name": this.refs.inputItemName.value,
+    		"date": this.refs.inputDate.value,
+    		"startTime": this.refs.inputStartTime.value,
+   		 	"endTime": this.refs.inputEndTime.value,
+    		"notes": this.refs.itemInfo.value,
+    		"complete":false
+		}
+		this.refs.inputItemName.value = 'Task Name';
+		this.refs.inputDate.value = '';
+    	this.refs.inputStartTime.value = '';
+   		this.refs.inputEndTime.value = '';
+    	this.refs.itemInfo.value = 'Notes'
+		event.preventDefault();
+		this.props.addItem(item);
+	}//creates new item from form submission
 	render(){
 		var display = {
 			display: this.props.formToggle ? 'block':'none'
@@ -13,7 +30,7 @@ class AddItem extends React.Component {
                 <div className="panel-heading item-addheading" onClick={this.toggleForm.bind(this)}>
                 <span className="glyphicon glyphicon-plus"></span> Add Task</div>
                 <div className="panel-body" style={display}>
-                    <form className="add-item form-horizontal">
+                    <form className="add-item form-horizontal" onSubmit={this.handleAdd.bind(this)}>
                         <div className="form-group">
                             <label className="col-sm-2 control-label">Task Name</label>
                             <div className="col-sm-4">
