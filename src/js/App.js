@@ -53,6 +53,8 @@ class Interface extends React.Component {
 		data.forEach(function(item){
 			if( (item.name.toLowerCase().indexOf(query)!=-1) ||
 				(item.date.toLowerCase().indexOf(query)!=-1) ||
+				(item.endTime.toLowerCase().indexOf(query)!=-1) ||
+				(item.startTime.toLowerCase().indexOf(query)!=-1) ||
 				(item.notes.toLowerCase().indexOf(query)!=-1) 
 				){
 				items.push(item);
