@@ -12,7 +12,10 @@ class Interface extends React.Component {
 		this.state = {
     		data:[],
     		editToggle:false,
-    		formToggle:false
+    		formToggle:false,
+    		orderBy:'date',
+    		orderDir:'asc',
+    		query:""
   		}	
 	}//Initial state
     componentDidMount() {
@@ -35,8 +38,30 @@ class Interface extends React.Component {
 		item.complete = !item.complete;
 		this.setState({});
 	}//check item
+	reOrder(orderBy, orderDir){
+		this.setState({orderBy:orderBy, orderDir:orderDir});
+	}//reorder items
+	searchItems(query){
+		this.setState({query:query});
+	}//search items
 	render(){
-		var items = this.state.data.map((value, key) => 
+		var items = [];
+		var orderBy = this.state.orderBy;
+		var orderDir = this.state.orderDir;
+		var query = this.state.query;
+		var data = this.state.data;
+		data.forEach(function(item){
+			if( (item.name.toLowerCase().indexOf(query)!=-1) ||
+				(item.date.toLowerCase().indexOf(query)!=-1) ||
+				(item.notes.toLowerCase().indexOf(query)!=-1) 
+				){
+				items.push(item);
+			}
+		});
+		//sort items
+		items = _.orderBy(items,(item)=>item[orderBy],orderDir);
+		//iterate through items
+		items = items.map((value, key) => 
 			<Items item={value} key={key} 
 			       toggle={this.state.editToggle} 
 			       onDelete={this.delete.bind(this)} 
@@ -46,10 +71,14 @@ class Interface extends React.Component {
 			<div>
 				<AddItem formToggle={this.state.formToggle} 
 						 handleToggle={()=>(this.setState({formToggle:!this.state.formToggle}))} 
-						 addItem = {this.addItem.bind(this)}/>
+						 addItem = {this.addItem.bind(this)} />				
+				<button id="editButton" className="pull-left" 
+						onClick={()=>(this.setState({editToggle:!this.state.editToggle}))}>Edit</button>
+				<SearchItems orderBy={this.state.orderBy} 
+							 orderDir={this.state.orderDir} 
+							 onReOrder={this.reOrder.bind(this)}
+							 onSearch={this.searchItems.bind(this)} />
 				<div className="item-list media-list">
-				<button className="pull-left" 
-				        onClick={()=>(this.setState({editToggle:!this.state.editToggle}))}>Edit</button>
 					<ul className="item-list media-list">{items}</ul>
 				</div>
 			</div>

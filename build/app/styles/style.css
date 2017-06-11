@@ -91,6 +91,7 @@ header h1 {
     font-size: 9px;
     line-height: 1.5;
     border-radius: 11px;
+    margin-top: 3px;
 }
 
 .glyphicon-minus:before {
@@ -121,4 +122,14 @@ header h1 {
     color: green;
     padding: 25px;
     line-height: 3em;
+}
+#editButton {
+    font-size: 1rem;
+    margin-left: 58px;
+}
+
+#searchBar {
+    margin-top: -6px;
+    padding: 0px 126px;
+    margin-bottom: 25px;
 }
