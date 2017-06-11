@@ -4,7 +4,7 @@
     "startTime": "8:30AM",
     "endTime": "",
     "notes": "Get up and make some eggs for breakfast",
-    "complete":false
+    "complete":true
 }, {
     "name": "Go to the gym",
     "date": "2017-6-6",

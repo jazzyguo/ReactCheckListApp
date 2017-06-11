@@ -13,6 +13,7 @@ class AddItem extends React.Component {
     		"notes": this.refs.itemInfo.value,
     		"complete":false
 		}
+		//clear inputs after submission
 		this.refs.inputItemName.value = 'Task Name';
 		this.refs.inputDate.value = '';
     	this.refs.inputStartTime.value = '';

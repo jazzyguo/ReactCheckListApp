@@ -31,11 +31,16 @@ class Interface extends React.Component {
 		data.push(item);
 		this.setState({data});
 	}//add item
+	checkItem(item){
+		item.complete = !item.complete;
+		this.setState({});
+	}//check item
 	render(){
 		var items = this.state.data.map((value, key) => 
 			<Items item={value} key={key} 
 			       toggle={this.state.editToggle} 
-			       onDelete={this.delete.bind(this)} /> 
+			       onDelete={this.delete.bind(this)} 
+			       checkItem={this.checkItem.bind(this)} /> 
 		);
 		return (
 			<div>

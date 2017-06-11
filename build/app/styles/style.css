@@ -108,3 +108,17 @@ header h1 {
     margin-left: 113px;
     margin-right: 112px;
 }
+
+.glyphicon-remove:before {
+    content: "\e014";
+    color: red;
+    padding: 25px;
+    line-height: 3em;
+}
+
+.glyphicon-ok:before {
+    content: "\e013";
+    color: green;
+    padding: 25px;
+    line-height: 3em;
+}
