@@ -61,7 +61,7 @@ class Interface extends React.Component {
 			}
 		});
 		//sort items
-		items = _.orderBy(items,(item)=>item[orderBy],orderDir);
+		items = _.orderBy(items,orderBy,orderDir);
 		//iterate through items
 		items = items.map((value, key) => 
 			<Items item={value} key={key} 
